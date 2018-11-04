@@ -2,15 +2,15 @@
 
 La intención de estos *scripts* consiste en ayudar a las tareas de extracción de imágenes desde un PDF sin requerir la instalación de software. Los escribí específicamente para extraer las imágenes de archivos PDF muy grandes y poder luego subirlas al servidor de Transkribus. En un futuro espero poder ajustar el proceso poder extraer las imágenes de todos los archivos PDF dentro de varios directorios y subdirectorios.
 
-Estos programas aprovechan el módulo (PyMuPDF)[https://pypi.org/project/PyMuPDF/] y son básicamente una ligera adaptación de los ejemplos disponibles en <https://github.com/rk700/PyMuPDF/tree/master/examples>. 
+Estos programas aprovechan el módulo [PyMuPDF](https://pypi.org/project/PyMuPDF/) y son básicamente una ligera adaptación de los ejemplos disponibles en <https://github.com/rk700/PyMuPDF/tree/master/examples>. 
 
 # Descripción
 
-Este repositorio contiene tres archivos de Python que contienen el mismo *script* para extraer imágenes aunque con pequeñas diferencias:
+Este repositorio contiene tres archivos de Python (dentro del directorio `extractores`) que contienen el mismo *script* para extraer imágenes aunque con pequeñas diferencias:
 
 - `extractor_simple.py` requiere ser editado para indicarle el archivo PDF a procesar.
-- `extractor_singleFile.py` sólo requiere ejecutarse para procesar un archivo PDF.
-- `extractor_delPDF.py` funciona igual que `extractor_singleFile.py` pero elimina el archivo PDF después de extraer las imágenes.
+- `extractor_singleFile.py` sólo requiere ejecutarse para procesar un archivo PDF.\*
+- `extractor_delPDF.py` funciona igual que `extractor_singleFile.py` pero elimina el archivo PDF después de extraer las imágenes.\*
 
 # Utilización
 
@@ -45,3 +45,5 @@ Este repositorio contiene tres archivos de Python que contienen el mismo *script
 Este repositorio es básicamente un ejercicio de aprendizaje y práctica personal, por lo que no puedo garantizar el soporte de las aplicaciones. 
 
 # Licencia
+
+GNU General Public License v3.0
