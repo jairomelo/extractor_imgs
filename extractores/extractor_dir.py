@@ -1,12 +1,13 @@
 import fitz, os, time
 
 rut = input('Ubicación del archivo: ')
-pdf = input('nombre del pdf \(sin la ext. pdf\): ')
+pdf = input('Nombre del pdf (sin la extensión *.pdf): ') # A mejorar: detectar la terminación *.pdf
 
 ruta = os.path.join(rut, '')
-ruta_imgs = os.path.join('{}{}'.format(ruta, pdf), '')
 
 nom_pdf = "{}{}.pdf".format(ruta, pdf)
+
+ruta_imgs = os.path.join('{}{}'.format(ruta, nom_pdf), '')
 
 if not os.path.exists(pdf):
 	os.makedirs(pdf)
@@ -17,10 +18,12 @@ for i in range(len(doc)):
         xref = img[0]
         pix = fitz.Pixmap(doc, xref)
         if pix.n < 5:       # this is GRAY or RGB
-            pix.writePNG("{}{}{}.png".format(ruta_imgs, i, xref))
+            pix.writePNG("{}/{}-{}.png".format(pdf, i, xref))
+            print("extraida la imagen {}-{}.png".format(i, xref))
         else:               # CMYK: convert to RGB first
             pix1 = fitz.Pixmap(fitz.csRGB, pix)
-            pix1.writePNG("{}{}{}.png".format(ruta_imgs, i, xref))
+            pix1.writePNG("{}/{}-{}.png".format(pdf, i, xref))
+            print("extraida la imagen {}-{}.png".format(i, xref))
             pix1 = None
         pix = None
 doc.close()
